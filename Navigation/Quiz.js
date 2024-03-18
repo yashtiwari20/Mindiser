@@ -37,7 +37,7 @@ const Quiz = ({ navigation,route }) => {
             var url='https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple&encode=url3986'
         }
         else if(number==5){
-            var url='https://opentdb.com/api.php?amount=10&category=25&difficulty=medium&type=multiple&encode=url3986'
+            var url='https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple&encode=url3986'
         }
         else if(number==6){
             var url='https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple&encode=url3986'
@@ -175,10 +175,10 @@ const styles = StyleSheet.create({
         fontWeight: '600',
     },
     container: {
+        backgroundColor:'black',
         height: '100%',
         paddingTop: 40,
         paddingHorizontal: 20,
-        backgroundColor:'black'
     },
     option: {
         flex: 1,

@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 
 
@@ -8,6 +8,10 @@ export default function Welcome({ navigation }) {
     <SafeAreaView style={styles.main}>
       <View >
         <Text style={styles.txt}>Welcome</Text>
+      </View>
+      <View style={styles.imgcontainer}>
+        <Image source={require('../Image/main.png')} style={styles.img}/>
+
       </View>
       <View style={styles.buttomView}>
         <View style={styles.btn}>
@@ -42,21 +46,29 @@ const styles = StyleSheet.create({
   buttomView: {
     flex: 2,
     justifyContent: "flex-end",
-    marginBottom: '20%'
+    marginBottom: '20%',
+  },
+  img:{
+    height:230,
+    width:230,
+  },
+  imgcontainer:{
+    margin:'20%',
+    marginRight:"10%",
   },
   main: {
-    height: '100%',
     alignItems: 'center',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
+    height: '100%',
   },
   txt: {
-    fontSize: 50,
     color: 'white',
+    fontSize: 50,
     marginTop: '20%',
   },
   txt1: {
+    color: 'black',
     fontSize: 30,
-    color: 'black'
 
   },
   txt2: {
