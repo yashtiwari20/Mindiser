@@ -1,9 +1,11 @@
 import { View, Text, ScrollView, TouchableOpacity, Image, StyleSheet, BackHandler } from 'react-native'
-import React from 'react'
+import React,{useEffect} from 'react'
 
 
 export default function Main({ navigation }) {
 
+  
+  
   return (
     <ScrollView style={{ backgroundColor: 'black', }}>
       <View>
