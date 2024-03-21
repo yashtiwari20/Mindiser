@@ -35,7 +35,7 @@ export default function Main({ navigation }) {
           </TouchableOpacity>
           <TouchableOpacity style={styles.catg} onPress={() => navigation.navigate('Quiz', { number: 5, catg: 'Computer' })}>
             <Image source={require('../Image/computer.png')} style={styles.img} />
-            <Text style={styles.innertxt}>Art & Craft</Text>
+            <Text style={styles.innertxt}>Computer</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.catg} onPress={() => navigation.navigate('Quiz', { number: 6, catg: 'Geography' })}>
             <Image source={require('../Image/geo.png')} style={styles.img} />

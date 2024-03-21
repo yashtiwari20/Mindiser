@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 
 const shuffleArray = (array) => {
@@ -103,7 +103,7 @@ const Quiz = ({ navigation,route }) => {
     }, []);
 
     return (
-        <SafeAreaView style={styles.container}>
+        <ScrollView style={styles.container}>
             {isLoading ? <View style={{ justifyContent: 'center', flex: 1 }}>
                 <ActivityIndicator size={'large'} color={'#0000ff'} />
             </View> : questions && (
@@ -134,7 +134,7 @@ const Quiz = ({ navigation,route }) => {
                     </View>
                 </View>
             )}
-        </SafeAreaView>
+        </ScrollView>
     );
 };
 
