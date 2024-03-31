@@ -5,6 +5,20 @@ import { useEffect, useState } from 'react';
 import Main from '../Navigation/Main'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+const password_validate = (password) => {
+  var re = {
+      capital: /(?=.*[A-Z])/,
+      length: /(?=.{7,10}$)/,
+      specialChar: /[ -\/:-@\[-\`{-~]/,
+      digit: /(?=.*[0-9])/,
+  };
+  return (
+      re.capital.test(password) &&
+      re.length.test(password) &&
+      re.specialChar.test(password) &&
+      re.digit.test(password)
+  );
+};
 
 export default function Signup({navigation}) {
   const [name, setName] = useState('');
@@ -12,7 +26,7 @@ export default function Signup({navigation}) {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [mobileNo, setMobileNo] = useState('');
-
+  const [pstxt,setPstxt]=useState('');
   const handleRegistration = async () => {
     // Validation checks
     if (!name || !email || !password || !confirmPassword || !mobileNo) {
@@ -26,6 +40,10 @@ export default function Signup({navigation}) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       Alert.alert('Error', 'Please enter a valid email');
+      return;
+    }
+    if (!password_validate(password)) {
+      Alert.alert('Error', 'Password must contain at least one uppercase letter, one special character, one digit, and be between 7 and 10 characters long');
       return;
     }
 
@@ -51,7 +69,6 @@ export default function Signup({navigation}) {
         <TextInput style={styles.Txtinpt} placeholderTextColor={'white'} placeholder='Enter Your Name' value={name} onChangeText={setName} />
         <TextInput style={styles.Txtinpt} placeholderTextColor={'white'} placeholder='Enter Your Email' value={email} onChangeText={setEmail} keyboardType='email-address'/>
         <TextInput style={styles.Txtinpt} placeholderTextColor={'white'} placeholder='Enter Your Password' value={password} onChangeText={setPassword} secureTextEntry />
-        <Text></Text>
         <TextInput style={styles.Txtinpt} placeholderTextColor={'white'} placeholder='Re-Enter Your Password' value={confirmPassword} onChangeText={setConfirmPassword} secureTextEntry />
         <TextInput style={styles.Txtinpt} placeholderTextColor={'white'} placeholder='Enter Your Mobile No.'value={mobileNo} keyboardType='phone-pad'  onChangeText={setMobileNo} />
       </View>
