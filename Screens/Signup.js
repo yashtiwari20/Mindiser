@@ -23,6 +23,11 @@ export default function Signup({navigation}) {
       Alert.alert('Error', 'Passwords do not match');
       return;
     }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      Alert.alert('Error', 'Please enter a valid email');
+      return;
+    }
 
     try {
       // Save registration data to local storage
@@ -46,8 +51,9 @@ export default function Signup({navigation}) {
         <TextInput style={styles.Txtinpt} placeholderTextColor={'white'} placeholder='Enter Your Name' value={name} onChangeText={setName} />
         <TextInput style={styles.Txtinpt} placeholderTextColor={'white'} placeholder='Enter Your Email' value={email} onChangeText={setEmail} keyboardType='email-address'/>
         <TextInput style={styles.Txtinpt} placeholderTextColor={'white'} placeholder='Enter Your Password' value={password} onChangeText={setPassword} secureTextEntry />
+        <Text></Text>
         <TextInput style={styles.Txtinpt} placeholderTextColor={'white'} placeholder='Re-Enter Your Password' value={confirmPassword} onChangeText={setConfirmPassword} secureTextEntry />
-        <TextInput style={styles.Txtinpt} placeholderTextColor={'white'} placeholder='Enter Your Mobile No.'value={mobileNo} onChangeText={setMobileNo} />
+        <TextInput style={styles.Txtinpt} placeholderTextColor={'white'} placeholder='Enter Your Mobile No.'value={mobileNo} keyboardType='phone-pad'  onChangeText={setMobileNo} />
       </View>
       <View>
         <TouchableOpacity style={styles.btn} onPress={handleRegistration}>
